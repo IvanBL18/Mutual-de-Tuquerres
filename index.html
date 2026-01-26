@@ -724,16 +724,16 @@ h2 {
 }
 
 /* Animación de aparición escalonada */
-.members-list li:nth-child(1) { animation-delay: 1s; }
-.members-list li:nth-child(2) { animation-delay: 2s; }
-.members-list li:nth-child(3) { animation-delay: 3s; }
-.members-list li:nth-child(4) { animation-delay: 4s; }
-.members-list li:nth-child(5) { animation-delay: 5s; }
-.members-list li:nth-child(6) { animation-delay: 6s; }
-.members-list li:nth-child(7) { animation-delay: 7s; }
-.members-list li:nth-child(8) { animation-delay: 8s; }
-.members-list li:nth-child(9) { animation-delay: 9s; }
-.members-list li:nth-child(10) { animation-delay: 10s; }
+.members-list li:nth-child(1) { animation-delay: 0.5s; }
+.members-list li:nth-child(2) { animation-delay: 1s; }
+.members-list li:nth-child(3) { animation-delay: 2s; }
+.members-list li:nth-child(4) { animation-delay: 3s; }
+.members-list li:nth-child(5) { animation-delay: 4s; }
+.members-list li:nth-child(6) { animation-delay: 5s; }
+.members-list li:nth-child(7) { animation-delay: 6s; }
+.members-list li:nth-child(8) { animation-delay: 7s; }
+.members-list li:nth-child(9) { animation-delay: 8s; }
+.members-list li:nth-child(10) { animation-delay: 9s; }
 members-list li:nth-child(11) { animation-delay: 2s; }
 .members-list li:nth-child(12) { animation-delay: 1s; }
 .members-list li:nth-child(13) { animation-delay: 2s; }
@@ -1391,6 +1391,46 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 }
 
 
+           .documentos {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.documentos li {
+  margin-bottom: 12px;
+}
+
+.documentos a {
+  display: block;
+  padding: 10px 14px;
+  background: #f5f7fa;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.documentos a:hover {
+  background: #e8f0fe;
+}
+
+
+           .documentos a {
+  display: block;
+  padding: 12px 16px;
+  border-left: 4px solid #1a73e8;
+  background: #fafafa;
+  color: #333;
+  text-decoration: none;
+}
+
+.documentos a:hover {
+  background: #f0f4ff;
+}
+
+
+
 
 
 
@@ -1412,6 +1452,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
                 <li><a href="#estimulossociales" onclick="showSection('estimulosociales')">Estimulos Sociales</a></li>
                 <li><a href="#miembros" onclick="showSection('miembros')">Miembros De Asmugi</a></li>
                 <li><a href="#centenario" onclick="showSection('centenario')">Centenario</a></li>
+                <li><a href="#normatividad" onclick="showSection('normatividad')">Centenario</a></li>
             </ul>
         </header>
         <main>
@@ -1734,7 +1775,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
                     <img src="img15.png.jpg" alt="Descripción de la imagen"></h2>
                     <img src="img16.png.jpg" alt="Descripción de la imagen"></h2>
                     <img src="imagen17.png" alt="Descripción de la imagen"></h2>
-               <div class="foto">
+              
   <h3>DESPEDIDA DEL AÑO 2025 </h3>
   <img src="img100.jpg.jpeg" alt="Descripción de la imagen">
   <img src="img101.jpg.jpeg" alt="Descripción de la imagen">
@@ -1804,6 +1845,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
  <img src="img126.jpeg" alt="Descripción de la imagen">    
 </div>
            
+  <div class="foto">      
            
                   
    
@@ -1952,6 +1994,40 @@ members-list li:nth-child(11) { animation-delay: 2s; }
        
 </div>
 
+ <!-- Normatividad -->
+<div id="Normatividad" class="section">
+  <ul class="documentos">
+    <li>
+      <a href="ley-2143-2021-asociaciones-mutualistas.pdf" target="_blank">
+        Ley 2143 de 2021 (Asociaciones mutualistas)
+      </a>
+    </li>
+    <li>
+      <a href="estatuto-aprobado-2024.pdf" target="_blank">
+        Estatuto aprobado 2024
+      </a>
+    </li>
+    <li>
+      <a href="acuerdo-11-auxilio-enfermedad-2025.pdf" target="_blank">
+        Acuerdo 11 – Auxilio por enfermedad (2025)
+      </a>
+    </li>
+    <li>
+      <a href="acuerdo-alquiler-salones.pdf" target="_blank">
+        Acuerdo alquiler de salones
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+   
 
         </main>
         <script>
@@ -2028,5 +2104,6 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
         </script>   
     </body>
     </html>
+
 
 
