@@ -1429,7 +1429,53 @@ members-list li:nth-child(11) { animation-delay: 2s; }
   background: #f0f4ff;
 }
 
+.foto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
 
+.foto img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+           #fotografias h3 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #333;
+  text-transform: uppercase;
+  position: relative;
+}
+
+           #fotografias h3::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #444;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+           #fotografias h3 {
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+           @media (max-width: 600px) {
+  #fotografias h3 {
+    font-size: 1.1rem;
+  }
+}
 
 
 
@@ -1754,99 +1800,100 @@ members-list li:nth-child(11) { animation-delay: 2s; }
     </p>
 </div>
 
-            <!-- Sección de fotografías -->
-            <div id="fotografias" class="section">
-                <!-- Contenido de la sección -->
-                <h2>
-                    <img src="img1.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img2.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img3.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img4.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img5.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img6.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img7.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img8.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img9.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img10.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img11.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img12.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img13.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img14.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img15.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="img16.png.jpg" alt="Descripción de la imagen"></h2>
-                    <img src="imagen17.png" alt="Descripción de la imagen"></h2>
-              
-  <h3>DESPEDIDA DEL AÑO 2025 </h3>
-  <img src="img100.jpg.jpeg" alt="Descripción de la imagen">
-  <img src="img101.jpg.jpeg" alt="Descripción de la imagen">
+         <!-- Sección de fotografías -->
+<div id="fotografias" class="section">
+
+  <h2>FOTOGRAFÍAS</h2>
+
+  <div class="foto">
+    <img src="img1.png.jpg" alt="Descripción de la imagen">
+    <img src="img2.png.jpg" alt="Descripción de la imagen">
+    <img src="img3.png.jpg" alt="Descripción de la imagen">
+    <img src="img4.png.jpg" alt="Descripción de la imagen">
+    <img src="img5.png.jpg" alt="Descripción de la imagen">
+    <img src="img6.png.jpg" alt="Descripción de la imagen">
+    <img src="img7.png.jpg" alt="Descripción de la imagen">
+    <img src="img8.png.jpg" alt="Descripción de la imagen">
+    <img src="img9.png.jpg" alt="Descripción de la imagen">
+    <img src="img10.png.jpg" alt="Descripción de la imagen">
+    <img src="img11.png.jpg" alt="Descripción de la imagen">
+    <img src="img12.png.jpg" alt="Descripción de la imagen">
+    <img src="img13.png.jpg" alt="Descripción de la imagen">
+    <img src="img14.png.jpg" alt="Descripción de la imagen">
+    <img src="img15.png.jpg" alt="Descripción de la imagen">
+    <img src="img16.png.jpg" alt="Descripción de la imagen">
+    <img src="imagen17.png" alt="Descripción de la imagen">
+  </div>
+
+  <h3>DESPEDIDA DEL AÑO 2025</h3>
+  <div class="foto">
+    <img src="img100.jpg.jpeg" alt="Descripción de la imagen">
+    <img src="img101.jpg.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>EL ENCUENTRO DEL NIÑO POBRE</h3>
+  <div class="foto">
+    <img src="img102.jpeg" alt="Descripción de la imagen">
+    <img src="img103.jpeg" alt="Descripción de la imagen">
+    <img src="img104.jpeg" alt="Descripción de la imagen">
+    <img src="img105.jpeg" alt="Descripción de la imagen">
+    <img src="img106.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>TRIDUO NAVIDEÑO</h3>
+  <div class="foto">
+    <img src="img107.jpeg" alt="Descripción de la imagen">
+    <img src="img108.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>ENUCUENTRO DE SOCIEDADES CULTURALES DE NARIÑO</h3>
+  <div class="foto">
+    <img src="img109.jpeg" alt="Descripción de la imagen">
+    <img src="img110.jpeg" alt="Descripción de la imagen">
+    <img src="img111.jpeg" alt="Descripción de la imagen">
+    <img src="img112.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>HOMENAJE AL SEÑOR OLIVA CERON MARTINES</h3>
+  <div class="foto">
+    <img src="img113.jpeg" alt="Descripción de la imagen">
+    <img src="img114.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>EXEQUIAS ASOCIADO JOSE HUMBERTO ARTEAGA</h3>
+  <div class="foto">
+    <img src="img115.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>CURSO BASICO DE ECONOMIA SOLIDARIA</h3>
+  <div class="foto">
+    <img src="img116.jpeg" alt="Descripción de la imagen">
+    <img src="img117.jpeg" alt="Descripción de la imagen">
+    <img src="img118.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>ANIVERSARIO 104</h3>
+  <div class="foto">
+    <img src="img119.jpeg" alt="Descripción de la imagen">
+    <img src="img120.jpeg" alt="Descripción de la imagen">
+    <img src="img121.jpeg" alt="Descripción de la imagen">
+    <img src="img122.jpeg" alt="Descripción de la imagen">
+    <img src="img123.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>RECONOCIMIENTO A ASOCIADOS POR SU SENTIDO DE PERTENENCIA</h3>
+  <div class="foto">
+    <img src="img124.jpeg" alt="Descripción de la imagen">
+    <img src="img125.jpeg" alt="Descripción de la imagen">
+  </div>
+
+  <h3>TOMA DE JURAMENTOS A NUEVOS ASOCIADOS</h3>
+  <div class="foto">
+    <img src="img126.jpeg" alt="Descripción de la imagen">
+  </div>
+
 </div>
-               
-   <h3>EL ENCUENTRO DEL NIÑO POBRE </h3>
-  <img src="img102.jpeg" alt="Descripción de la imagen">
-  <img src="img103.jpeg" alt="Descripción de la imagen">
-  <img src="img104.jpeg" alt="Descripción de la imagen">  
-  <img src="img105.jpeg" alt="Descripción de la imagen">
-  <img src="img106.jpeg" alt="Descripción de la imagen">
-</div>
 
-
-            <h3>TRIDUO NAVIDEÑO    </h3>
-  <img src="img107.jpeg" alt="Descripción de la imagen">
-  <img src="img108.jpeg" alt="Descripción de la imagen">
-</div>
-
-           
- <h3>ENUCUENTRO DE SOCIEDADES CULTURALES DE NARIÑO   </h3>
- <img src="img109.jpeg" alt="Descripción de la imagen">
- <img src="img110.jpeg" alt="Descripción de la imagen">
- <img src="img111.jpeg" alt="Descripción de la imagen">
- <img src="img112.jpeg" alt="Descripción de la imagen">
-</div>
-               
-
-<h3>HOMENAJE AL SEÑOR OLIVA CERON MARTINES   </h3>
- <img src="img113.jpeg" alt="Descripción de la imagen">
- <img src="img114.jpeg" alt="Descripción de la imagen">
-</div>
-
-
-
-  <h3>EXEQUIAS ASOCIADO JOSE HUMBERTO ARTEAGA   </h3>
- <img src="img115.jpeg" alt="Descripción de la imagen">
-</div>
-
-
-                      
- <h3>CURSO BASICO DE ECONOMIA SOLIDARIA   </h3>
- <img src="img116.jpeg" alt="Descripción de la imagen">
- <img src="img117.jpeg" alt="Descripción de la imagen">
- <img src="img118.jpeg" alt="Descripción de la imagen">
-</div>
-
-
-   
-    <h3>ANIVERSARIO 104  </h3>
- <img src="img119.jpeg" alt="Descripción de la imagen">
- <img src="img120.jpeg" alt="Descripción de la imagen">
- <img src="img121.jpeg" alt="Descripción de la imagen">
-  <img src="img122.jpeg" alt="Descripción de la imagen">
- <img src="img123.jpeg" alt="Descripción de la imagen">          
-</div>
-
-
-           
- <h3>RECONOCIMIENTO A ASOCIADOS POR SU SENTIDO DE PERTENENCIA </h3>
- <img src="img124.jpeg" alt="Descripción de la imagen">
- <img src="img125.jpeg" alt="Descripción de la imagen">     
-</div>
-
-
- <h3>TOMA DE JURAMENTOS A NUEVOS  ASOCIADOS</h3>
- <img src="img126.jpeg" alt="Descripción de la imagen">    
-</div>
-           
-  <div class="foto">      
-           
                   
    
 
@@ -1995,7 +2042,9 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 </div>
 
  <!-- Normatividad -->
-<div id="Normatividad" class="section">
+<div id="Normatividad" class="section active">
+
+
   <ul class="documentos">
     <li>
       <a href="ley-2143-2021-asociaciones-mutualistas.pdf" target="_blank">
@@ -2104,6 +2153,7 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
         </script>   
     </body>
     </html>
+
 
 
 
