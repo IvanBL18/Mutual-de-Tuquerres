@@ -1431,8 +1431,9 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 
 .foto {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
   gap: 15px;
+  justify-content: center;
   margin-bottom: 30px;
 }
 
@@ -1498,7 +1499,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
                 <li><a href="#estimulossociales" onclick="showSection('estimulosociales')">Estimulos Sociales</a></li>
                 <li><a href="#miembros" onclick="showSection('miembros')">Miembros De Asmugi</a></li>
                 <li><a href="#centenario" onclick="showSection('centenario')">Centenario</a></li>
-                <li><a href="#normatividad" onclick="showSection('normatividad')">Centenario</a></li>
+                <li><a href="#normatividad" onclick="showSection('normatividad')">Normatividad</a></li>
             </ul>
         </header>
         <main>
@@ -2042,7 +2043,8 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 </div>
 
  <!-- Normatividad -->
-<div id="Normatividad" class="section active">
+<div id="normatividad" class="section">
+
 
 
   <ul class="documentos">
@@ -2153,6 +2155,7 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
         </script>   
     </body>
     </html>
+
 
 
 
