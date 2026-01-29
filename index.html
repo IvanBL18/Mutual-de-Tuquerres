@@ -2077,11 +2077,10 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 </div>
 
  <!-- Normatividad -->
-<div id="normatividad" class="section visible">
+<div id="normatividad" class="section">
 
-<h1>Título grande</h1>
-<h2>Título un poco más chico</h2>
-<h3>Título aún más chico</h3>
+
+
 
 <p style="color:red;">LOS LINKS DEBEN ESTAR AQUÍ ABAJO</p>
 
@@ -2121,82 +2120,39 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 
         </main>
 <script>
-            
-    const elements = document.querySelectorAll('.section h2, .section p, .section img');
+function showSection(id) {
+  // Oculta todas
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.classList.remove('active-section');
+  });
 
-    function animateOnScroll() {
-        elements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                el.classList.add('active');
-            }
-        });
-    }
+  // Muestra la seleccionada
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add('active-section');
+  }
+}
 
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-
-
-            function showSection(id) {
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                document.getElementById(id).classList.add('active');
-            }
-            
-            // Animaciones al hacer scroll
-            document.addEventListener('scroll', () => {
-                const sections = document.querySelectorAll('.section-container > div');
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        section.style.opacity = '1';
-                        section.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            // Función para manejar las animaciones al hacer scroll
-document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.junta-content, .beneficio');
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            section.classList.add('active');
-        }
-    });
-});
-document.querySelectorAll('header ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        // Si es el enlace de Inicio, desplazarse a la parte superior
-        if (targetId === 'inicio') {
-            window.scrollTo({
-                top: 0, // Desplazarse a la parte superior de la página
-                behavior: 'smooth'
-            });
-        } else {
-            // Desplazarse a las otras secciones normalmente
-            window.scrollTo({
-                top: targetElement.offsetTop - 80, // Ajusta la altura según tu encabezado
-                behavior: 'smooth'
-            });
-        }
-    });
+/* 👇 ESTO ES CLAVE */
+document.querySelectorAll('header ul li a').forEach(link => {
+  link.addEventListener('click', function () {
+    const id = this.getAttribute('href').replace('#', '');
+    showSection(id);
+  });
 });
 
+/* Sección inicial */
+window.addEventListener('load', () => {
+  showSection('inicio');
+});
+</script>
 
-
-        </script>   
 
 
 
     </body>
     </html>
+
 
 
 
