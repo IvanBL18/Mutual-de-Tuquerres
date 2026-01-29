@@ -2116,7 +2116,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
    
 
         </main>
-      <script>
+    <script>
 /* ===============================
    Animaciones al hacer scroll
 ================================ */
@@ -2127,7 +2127,7 @@ function animateOnScroll() {
     elements.forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add('active'); // SOLO animaciones
+            el.classList.add('active');
         }
     });
 }
@@ -2144,7 +2144,7 @@ window.addEventListener('load', animateOnScroll);
 function showSection(id) {
     document.querySelectorAll('.section').forEach(section => {
         section.style.display = 'none';
-        section.classList.remove('visible'); // nueva clase
+        section.classList.remove('visible');
     });
 
     const target = document.getElementById(id);
@@ -2182,7 +2182,7 @@ document.addEventListener('scroll', () => {
 
 
 /* ===============================
-   Scroll suave del menú
+   Scroll suave + MOSTRAR SECCIÓN
 ================================ */
 
 document.querySelectorAll('header ul li a').forEach(anchor => {
@@ -2193,6 +2193,9 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
         const targetElement = document.getElementById(targetId);
 
         if (!targetElement) return;
+
+        // ✅ ESTA LÍNEA ES LA CLAVE (ANTES NO ESTABA)
+        showSection(targetId);
 
         if (targetId === 'inicio') {
             window.scrollTo({
@@ -2209,8 +2212,10 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
 });
 </script>
 
+
     </body>
     </html>
+
 
 
 
