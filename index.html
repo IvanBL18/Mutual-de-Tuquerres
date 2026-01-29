@@ -1479,32 +1479,11 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 }
 
 
-           #normatividad ul {
-  display: block !important;
-}
-
-#normatividad li {
-  display: list-item !important;
-}
-
-#normatividad a {
-  display: block !important;
-  color: #000000 !important;
-  background: #f5f7fa !important;
-  padding: 12px 16px !important;
-  margin-bottom: 10px !important;
-  text-decoration: none !important;
-  border-radius: 6px;
-}
 
 
-           .section {
-  display: none;
-}
 
-.section.visible {
-  display: block;
-}
+
+
 
 
 
@@ -2116,31 +2095,77 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 
         </main>
 <script>
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(section => {
-    section.classList.remove('visible');
-  });
+            
+    const elements = document.querySelectorAll('.section h2, .section p, .section img');
 
-  const target = document.getElementById(id);
-  if (target) {
-    target.classList.add('visible');
-  }
-}
+    function animateOnScroll() {
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                el.classList.add('active');
+            }
+        });
+    }
 
-// MENÚ
-document.querySelectorAll('header ul li a').forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const id = this.getAttribute('href').substring(1);
-    showSection(id);
-  });
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+
+            function showSection(id) {
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(id).classList.add('active');
+            }
+            
+            // Animaciones al hacer scroll
+            document.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('.section-container > div');
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            // Función para manejar las animaciones al hacer scroll
+document.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.junta-content, .beneficio');
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            section.classList.add('active');
+        }
+    });
+});
+document.querySelectorAll('header ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        // Si es el enlace de Inicio, desplazarse a la parte superior
+        if (targetId === 'inicio') {
+            window.scrollTo({
+                top: 0, // Desplazarse a la parte superior de la página
+                behavior: 'smooth'
+            });
+        } else {
+            // Desplazarse a las otras secciones normalmente
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Ajusta la altura según tu encabezado
+                behavior: 'smooth'
+            });
+        }
+    });
 });
 
-// SECCIÓN INICIAL
-window.addEventListener('load', () => {
-  showSection('inicio');
-});
-</script>
+
+
+        </script>   
 
 
 
@@ -2149,6 +2174,7 @@ window.addEventListener('load', () => {
 
     </body>
     </html>
+
 
 
 
