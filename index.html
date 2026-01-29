@@ -2077,7 +2077,8 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 </div>
 
  <!-- Normatividad -->
-<div id="normatividad" class="section">
+<div id="normatividad" class="section visible">
+
 
 <p style="color:red;">LOS LINKS DEBEN ESTAR AQUÍ ABAJO</p>
 
@@ -2116,7 +2117,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
    
 
         </main>
-    <script>
+<script>
 /* ===============================
    Animaciones al hacer scroll
 ================================ */
@@ -2138,7 +2139,6 @@ window.addEventListener('load', animateOnScroll);
 
 /* ===============================
    MOSTRAR / OCULTAR SECCIONES
-   (MENÚ)
 ================================ */
 
 function showSection(id) {
@@ -2151,38 +2151,15 @@ function showSection(id) {
     if (target) {
         target.style.display = 'block';
         target.classList.add('visible');
+
+        // 👇 CLAVE: permitir que el contenido interno se vea
+        target.style.opacity = '1';
     }
 }
 
 
 /* ===============================
-   Animaciones adicionales
-================================ */
-
-document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.section-container > div');
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-        }
-    });
-});
-
-document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.junta-content, .beneficio');
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            section.classList.add('active');
-        }
-    });
-});
-
-
-/* ===============================
-   Scroll suave + MOSTRAR SECCIÓN
+   Scroll menú (SIN romper secciones)
 ================================ */
 
 document.querySelectorAll('header ul li a').forEach(anchor => {
@@ -2190,38 +2167,33 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
         e.preventDefault();
 
         const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
 
-        if (!targetElement) return;
-
-        // ✅ ESTA LÍNEA ES LA CLAVE (ANTES NO ESTABA)
+        // 👉 PRIMERO mostrar sección
         showSection(targetId);
 
-        if (targetId === 'inicio') {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        } else {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
+        // 👉 DESPUÉS scroll (simple, sin offset raro)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 });
 
 
-       // ✅ MOSTRAR UNA SECCIÓN AL CARGAR LA PÁGINA
-window.addEventListener('load', () => {
-    showSection('normatividad'); // o 'inicio' si quieres esa primero
-});
+/* ===============================
+   MOSTRAR INICIO AL CARGAR
+================================ */
 
+window.addEventListener('load', () => {
+    showSection('inicio'); // ← Normatividad se verá cuando la pulses
+});
 </script>
+
 
 
     </body>
     </html>
+
 
 
 
