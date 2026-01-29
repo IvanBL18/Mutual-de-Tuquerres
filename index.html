@@ -2210,11 +2210,19 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
         }
     });
 });
+
+
+       // ✅ MOSTRAR UNA SECCIÓN AL CARGAR LA PÁGINA
+window.addEventListener('load', () => {
+    showSection('normatividad'); // o 'inicio' si quieres esa primero
+});
+
 </script>
 
 
     </body>
     </html>
+
 
 
 
