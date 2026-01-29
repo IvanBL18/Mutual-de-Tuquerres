@@ -1528,11 +1528,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
                 <li><a href="#estimulossociales" onclick="showSection('estimulosociales')">Estimulos Sociales</a></li>
                 <li><a href="#miembros" onclick="showSection('miembros')">Miembros De Asmugi</a></li>
                 <li><a href="#centenario" onclick="showSection('centenario')">Centenario</a></li>
-            <li>
-  <a href="#normatividad" onclick="showSection('normatividad')">
-    Normatividad
-  </a>
-</li>
+
 
             </ul>
         </header>
@@ -2121,25 +2117,30 @@ members-list li:nth-child(11) { animation-delay: 2s; }
         </main>
 <script>
 function showSection(id) {
-  // Oculta todas
-  document.querySelectorAll('.section').forEach(sec => {
-    sec.classList.remove('active-section');
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('visible');
   });
 
-  // Muestra la seleccionada
   const target = document.getElementById(id);
   if (target) {
-    target.classList.add('active-section');
+    target.classList.add('visible');
   }
 }
 
-/* 👇 ESTO ES CLAVE */
+// MENÚ
 document.querySelectorAll('header ul li a').forEach(link => {
-  link.addEventListener('click', function () {
-    const id = this.getAttribute('href').replace('#', '');
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const id = this.getAttribute('href').substring(1);
     showSection(id);
   });
 });
+
+// SECCIÓN INICIAL
+window.addEventListener('load', () => {
+  showSection('inicio');
+});
+</script>
 
 
 
@@ -2148,6 +2149,7 @@ document.querySelectorAll('header ul li a').forEach(link => {
 
     </body>
     </html>
+
 
 
 
