@@ -154,12 +154,14 @@
             right: 20px;
         }
         
+        /* LOGO TRANSPARENTE Y MÁS PEQUEÑO - SIN FONDO BLANCO */
         .banner-logo img {
-            max-width: 15vw;
+            max-width: 120px; /* Más pequeño */
             height: auto;
-            background: rgba(255,255,255,0.9);
-            padding: 10px;
-            border-radius: 8px;
+            background: transparent !important; /* Sin fondo blanco */
+            padding: 0 !important; /* Sin padding */
+            border-radius: 0; /* Sin bordes redondeados */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); /* Sombra para visibilidad */
         }
         
         /* ===== CONTENIDO INICIO ===== */
@@ -218,13 +220,24 @@
             text-align: justify;
         }
         
+        /* VALORES CENTRADOS */
+        .valores {
+            text-align: center !important;
+        }
+        
         .valores ol {
-            margin-left: 20px;
+            display: inline-block;
+            text-align: left;
+            margin: 0 auto;
+            padding: 0;
+            list-style-position: inside;
         }
         
         .valores ol li {
             margin-bottom: 10px;
             font-size: 1.1rem;
+            text-align: left;
+            padding-left: 0;
         }
         
         /* ===== JUNTA DIRECTIVA ===== */
@@ -384,6 +397,16 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
+        /* IMAGEN CENTRADA EN RESEÑA HISTÓRICA */
+        #reseñahistorica .img-centrada {
+            display: block;
+            margin: 30px auto;
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
         /* ===== SEDE Y SÍMBOLOS ===== */
         .biografia-content {
             background: white;
@@ -413,6 +436,32 @@
             border-radius: 12px;
             margin: 25px auto;
             display: block;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* HIMNO Y ESCUDO CENTRADOS */
+        #simbolos .text-content {
+            text-align: center;
+        }
+        
+        #simbolos .text-content h2 {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+        
+        #simbolos .text-content p {
+            text-align: center;
+            line-height: 1.8;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        #simbolos .text-content img {
+            display: block;
+            margin: 30px auto;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
         
@@ -474,7 +523,7 @@
             transform: scale(1.05);
         }
         
-        /* ===== FOTOGRAFÍAS ===== */
+        /* ===== FOTOGRAFÍAS - IMÁGENES MÁS GRANDES ===== */
         .foto {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -484,8 +533,8 @@
         
         .foto img {
             width: 100%;
-            height: 280px;
-            object-fit: cover;
+            height: 330px; /* AUMENTADO A 330px */
+            object-fit: cover; /* Mantiene proporción */
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.4s ease;
@@ -494,6 +543,58 @@
         .foto img:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* GRUPOS DE IMÁGENES CENTRADAS - 2, 3 o 4 imágenes */
+        .foto-grupo-2 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .foto-grupo-2 img {
+            width: calc(50% - 10px);
+            max-width: 400px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .foto-grupo-3 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .foto-grupo-3 img {
+            width: calc(33.333% - 14px);
+            max-width: 300px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .foto-grupo-4 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .foto-grupo-4 img {
+            width: calc(25% - 15px);
+            max-width: 250px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         #fotografias h3 {
@@ -587,7 +688,7 @@
             }
             
             .banner-logo img {
-                max-width: 120px;
+                max-width: 100px;
             }
             
             .section-container {
@@ -607,6 +708,12 @@
             
             .members-list {
                 column-count: 1;
+            }
+            
+            .foto-grupo-2 img,
+            .foto-grupo-3 img,
+            .foto-grupo-4 img {
+                width: calc(50% - 10px);
             }
         }
         
@@ -676,7 +783,18 @@
             }
             
             .foto {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .foto img {
+                height: 280px;
+            }
+            
+            .foto-grupo-2 img,
+            .foto-grupo-3 img,
+            .foto-grupo-4 img {
+                width: 100%;
+                max-width: 300px;
             }
         }
         
@@ -702,7 +820,7 @@
             }
             
             .banner-logo img {
-                max-width: 100px;
+                max-width: 80px;
             }
             
             .texto-inicio h2 {
@@ -727,6 +845,10 @@
             
             .foto {
                 grid-template-columns: 1fr;
+            }
+            
+            .foto img {
+                height: 250px;
             }
         }
     </style>
@@ -885,7 +1007,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN RESEÑA HISTÓRICA (TODO EL CONTENIDO ORIGINAL) ===== -->
+        <!-- ===== SECCIÓN RESEÑA HISTÓRICA ===== -->
         <section id="reseñahistorica" class="section">
             <div class="container">
                 <h2>Reseña Histórica de ASMUGI</h2>
@@ -943,7 +1065,9 @@
                 </ul>
                 
                 <p>El ilustre escritor Don <strong>VICTOR SANCHEZ MONTENEGRO</strong> obsequió gustoso a la Institución el siguiente poema, que fue acogido como su Himno, con el beneplácito de todos los socios, cuya música se debe a la inspiración del compositor Don <strong>ELIAS GONZALEZ</strong>.</p>
-                <img src="imagen3.png.jpg" alt="Historia" class="img-fluid rounded mt-4">
+                
+                <!-- IMAGEN CENTRADA -->
+                <img src="imagen3.png.jpg" alt="Historia" class="img-centrada">
             </div>
         </section>
 
@@ -959,7 +1083,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN SÍMBOLOS ===== -->
+        <!-- ===== SECCIÓN SÍMBOLOS (HIMNO Y ESCUDO CENTRADOS) ===== -->
         <section id="simbolos" class="section">
             <div class="container">
                 <div class="text-content">
@@ -996,7 +1120,7 @@
                     <h2>EL ESCUDO</h2>
                     <p>Por otra parte, el inspirado artista Señor ARISTÓBULO IBAÑEZ, oriundo de la ciudad de Ipiales donó a la Institución un hermoso pergamino que representa su lema así:</p>
                     
-                    <img src="imagen5,png.jpg" alt="Escudo" class="img-fluid rounded mx-auto d-block mt-3">
+                    <img src="imagen5,png.jpg" alt="Escudo" class="img-fluid rounded mt-3">
                     
                     <p>Una paloma en raudo vuelo, símbolo de la PAZ, dos manos entrelazadas: la FRATERNIDAD, y un ferrocarril en plena marcha, que representa el PROGRESO.<br>
                     El hermoso cuadro, circundado por una corona de laurel.</p>
@@ -1041,7 +1165,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN FOTOGRAFÍAS ===== -->
+        <!-- ===== SECCIÓN FOTOGRAFÍAS CON IMÁGENES MÁS GRANDES ===== -->
         <section id="fotografias" class="section">
             <div class="container">
                 <h2 class="text-center mb-5">FOTOGRAFÍAS</h2>
@@ -1067,13 +1191,13 @@
                 </div>
 
                 <h3>DESPEDIDA DEL AÑO 2025</h3>
-                <div class="foto">
+                <div class="foto-grupo-2">
                     <img src="img100.jpg.jpeg" alt="Despedida 1">
                     <img src="img101.jpg.jpeg" alt="Despedida 2">
                 </div>
 
                 <h3>EL ENCUENTRO DEL NIÑO POBRE</h3>
-                <div class="foto">
+                <div class="foto-grupo-5">
                     <img src="img102.jpeg" alt="Niño Pobre 1">
                     <img src="img103.jpeg" alt="Niño Pobre 2">
                     <img src="img104.jpeg" alt="Niño Pobre 3">
@@ -1082,13 +1206,13 @@
                 </div>
 
                 <h3>TRIDUO NAVIDEÑO</h3>
-                <div class="foto">
+                <div class="foto-grupo-2">
                     <img src="img107.jpeg" alt="Navidad 1">
                     <img src="img108.jpeg" alt="Navidad 2">
                 </div>
 
                 <h3>ENUCUENTRO DE SOCIEDADES CULTURALES DE NARIÑO</h3>
-                <div class="foto">
+                <div class="foto-grupo-4">
                     <img src="img109.jpeg" alt="Encuentro 1">
                     <img src="img110.jpeg" alt="Encuentro 2">
                     <img src="img111.jpeg" alt="Encuentro 3">
@@ -1096,25 +1220,25 @@
                 </div>
 
                 <h3>HOMENAJE AL SEÑOR OLIVA CERON MARTINES</h3>
-                <div class="foto">
+                <div class="foto-grupo-2">
                     <img src="img113.jpeg" alt="Homenaje 1">
                     <img src="img114.jpeg" alt="Homenaje 2">
                 </div>
 
                 <h3>EXEQUIAS ASOCIADO JOSE HUMBERTO ARTEAGA</h3>
-                <div class="foto">
+                <div class="foto-grupo-1">
                     <img src="img115.jpeg" alt="Exequias">
                 </div>
 
                 <h3>CURSO BASICO DE ECONOMIA SOLIDARIA</h3>
-                <div class="foto">
+                <div class="foto-grupo-3">
                     <img src="img116.jpeg" alt="Curso 1">
                     <img src="img117.jpeg" alt="Curso 2">
                     <img src="img118.jpeg" alt="Curso 3">
                 </div>
 
                 <h3>ANIVERSARIO 104</h3>
-                <div class="foto">
+                <div class="foto-grupo-5">
                     <img src="img119.jpeg" alt="Aniversario 1">
                     <img src="img120.jpeg" alt="Aniversario 2">
                     <img src="img121.jpeg" alt="Aniversario 3">
@@ -1123,13 +1247,13 @@
                 </div>
 
                 <h3>RECONOCIMIENTO A ASOCIADOS POR SU SENTIDO DE PERTENENCIA</h3>
-                <div class="foto">
+                <div class="foto-grupo-2">
                     <img src="img124.jpeg" alt="Reconocimiento 1">
                     <img src="img125.jpeg" alt="Reconocimiento 2">
                 </div>
 
                 <h3>TOMA DE JURAMENTOS A NUEVOS ASOCIADOS</h3>
-                <div class="foto">
+                <div class="foto-grupo-1">
                     <img src="img126.jpeg" alt="Juramentos">
                 </div>
             </div>
@@ -1326,7 +1450,11 @@
 
                     <p>Fue un hermoso festejo, un deseo de estar juntos y celebrar los 100 años, encontramos una mutual a plena vida, con inspiración; con colaboradores entusiastas, y transitando los 100 años con seguridad y firmeza como cuando se cumple un destino. Felicidad querida "ASOCIACIÓN MUTUAL GIRARDOT".</p>
 
-                    
+                    <p><strong>Cordialmente,</strong></p>
+
+                    <p><strong>EDGAR HERNAN BELALCAZAR LOPEZ,</strong><br>
+                    Presidente ASOCIACIÓN MUTUAL GIRARDOT<br>
+                    Túquerres Nariño, periodo 2023-2025.</p>
                 </div>
                 
                 <div class="centenario-images mt-5">
@@ -1413,4 +1541,3 @@
     </script>
 </body>
 </html>
-
