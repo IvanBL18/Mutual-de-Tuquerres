@@ -75,6 +75,24 @@
             border-radius: 6px;
             font-weight: 500;
             transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        /* INDICADOR DE SECCIÓN ACTIVA EN EL MENÚ */
+        .nav-link.active {
+            background: rgba(255,255,255,0.2) !important;
+            font-weight: bold;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 20%;
+            width: 60%;
+            height: 3px;
+            background: var(--color-medio);
+            border-radius: 2px;
         }
         
         .nav-link:hover {
@@ -523,88 +541,55 @@
             transform: scale(1.05);
         }
         
-        /* ===== FOTOGRAFÍAS - IMÁGENES MÁS GRANDES ===== */
+        /* ===== FOTOGRAFÍAS - TODAS DEL MISMO TAMAÑO Y CENTRADAS ===== */
         .foto {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 15px;
             margin: 30px 0;
+            justify-items: center; /* Centra las imágenes en sus celdas */
         }
         
         .foto img {
             width: 100%;
-            height: 330px; /* AUMENTADO A 330px */
+            max-width: 280px; /* Tamaño máximo uniforme */
+            height: 280px; /* Altura aumentada pero no gigante */
             object-fit: cover; /* Mantiene proporción */
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
         
         .foto img:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        /* GRUPOS DE IMÁGENES CENTRADAS - 2, 3 o 4 imágenes */
-        .foto-grupo-2 {
+        /* Para grupos pequeños (1-4 imágenes) */
+        .grupo-pequeno {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
-            margin: 30px 0;
+            gap: 15px;
+            margin: 20px 0;
         }
         
-        .foto-grupo-2 img {
-            width: calc(50% - 10px);
-            max-width: 400px;
-            height: 330px;
+        .grupo-pequeno img {
+            width: 280px;
+            height: 280px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .foto-grupo-3 {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .foto-grupo-3 img {
-            width: calc(33.333% - 14px);
-            max-width: 300px;
-            height: 330px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .foto-grupo-4 {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .foto-grupo-4 img {
-            width: calc(25% - 15px);
-            max-width: 250px;
-            height: 330px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
         #fotografias h3 {
             text-align: center;
-            margin: 50px 0 25px;
-            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--color-oscuro);
             padding-bottom: 10px;
-            border-bottom: 3px solid var(--color-medio);
+            border-bottom: 2px solid var(--color-medio);
         }
         
         /* ===== NORMATIVIDAD ===== */
@@ -710,10 +695,18 @@
                 column-count: 1;
             }
             
-            .foto-grupo-2 img,
-            .foto-grupo-3 img,
-            .foto-grupo-4 img {
-                width: calc(50% - 10px);
+            .foto {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .foto img {
+                max-width: 220px;
+                height: 220px;
+            }
+            
+            .grupo-pequeno img {
+                width: 220px;
+                height: 220px;
             }
         }
         
@@ -787,14 +780,18 @@
             }
             
             .foto img {
-                height: 280px;
+                max-width: 200px;
+                height: 200px;
             }
             
-            .foto-grupo-2 img,
-            .foto-grupo-3 img,
-            .foto-grupo-4 img {
-                width: 100%;
-                max-width: 300px;
+            .grupo-pequeno {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .grupo-pequeno img {
+                width: 280px;
+                height: 200px;
             }
         }
         
@@ -848,7 +845,14 @@
             }
             
             .foto img {
+                max-width: 100%;
                 height: 250px;
+            }
+            
+            .grupo-pequeno img {
+                width: 100%;
+                max-width: 280px;
+                height: 200px;
             }
         }
     </style>
@@ -1055,7 +1059,9 @@
                 
                 <p>Finalmente, se procedió a la elección de la Junta Directiva quedando electo como su primer presidente el Señor Don <strong>MARIO CASTILLO</strong>, quien gallardamente obsequió una nutrida biblioteca para que sirviera de sano esparcimiento de los socios, libros que abordaban diversos temas de la literatura universal, con autores escogidos y algunos en sus idiomas originales.</p>
                 
-                <img src="imagen2.png.jpg" alt="Historia" class="img-fluid rounded mt-4">
+                <!-- IMAGEN CENTRADA -->
+                <img src="imagen2.png.jpg" alt="Historia" class="img-centrada">
+                
                 <p>En el punto de "Varios", uno de los socios fundadores, Señor <strong>JULIO DAVILA GUERRERO</strong> ofreció generosamente uno de los salones de su casa de habitación, ubicada en el centro de la ciudad (Hoy Carrera 13 entre Calles 17 y 18) para que, en forma gratuita, sirviera como sede de la Entidad, tanto para las sesiones de Junta Directiva como para las de Asamblea General e igualmente para el funcionamiento de la biblioteca pletórica de libros de suma importancia.</p>
                 
                 <p>Finalmente, la magna Asamblea acogió con gran entusiasmo los símbolos que en lo futuro identificarían la Entidad:</p>
@@ -1120,7 +1126,7 @@
                     <h2>EL ESCUDO</h2>
                     <p>Por otra parte, el inspirado artista Señor ARISTÓBULO IBAÑEZ, oriundo de la ciudad de Ipiales donó a la Institución un hermoso pergamino que representa su lema así:</p>
                     
-                    <img src="imagen5,png.jpg" alt="Escudo" class="img-fluid rounded mt-3">
+                    <img src="imagen5,png.jpg" alt="Escudo" class="img-fluid rounded mx-auto d-block mt-3">
                     
                     <p>Una paloma en raudo vuelo, símbolo de la PAZ, dos manos entrelazadas: la FRATERNIDAD, y un ferrocarril en plena marcha, que representa el PROGRESO.<br>
                     El hermoso cuadro, circundado por una corona de laurel.</p>
@@ -1165,7 +1171,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN FOTOGRAFÍAS CON IMÁGENES MÁS GRANDES ===== -->
+        <!-- ===== SECCIÓN FOTOGRAFÍAS - TODAS DEL MISMO TAMAÑO Y CENTRADAS ===== -->
         <section id="fotografias" class="section">
             <div class="container">
                 <h2 class="text-center mb-5">FOTOGRAFÍAS</h2>
@@ -1191,13 +1197,13 @@
                 </div>
 
                 <h3>DESPEDIDA DEL AÑO 2025</h3>
-                <div class="foto-grupo-2">
+                <div class="grupo-pequeno">
                     <img src="img100.jpg.jpeg" alt="Despedida 1">
                     <img src="img101.jpg.jpeg" alt="Despedida 2">
                 </div>
 
                 <h3>EL ENCUENTRO DEL NIÑO POBRE</h3>
-                <div class="foto-grupo-5">
+                <div class="grupo-pequeno">
                     <img src="img102.jpeg" alt="Niño Pobre 1">
                     <img src="img103.jpeg" alt="Niño Pobre 2">
                     <img src="img104.jpeg" alt="Niño Pobre 3">
@@ -1206,13 +1212,13 @@
                 </div>
 
                 <h3>TRIDUO NAVIDEÑO</h3>
-                <div class="foto-grupo-2">
+                <div class="grupo-pequeno">
                     <img src="img107.jpeg" alt="Navidad 1">
                     <img src="img108.jpeg" alt="Navidad 2">
                 </div>
 
                 <h3>ENUCUENTRO DE SOCIEDADES CULTURALES DE NARIÑO</h3>
-                <div class="foto-grupo-4">
+                <div class="grupo-pequeno">
                     <img src="img109.jpeg" alt="Encuentro 1">
                     <img src="img110.jpeg" alt="Encuentro 2">
                     <img src="img111.jpeg" alt="Encuentro 3">
@@ -1220,25 +1226,25 @@
                 </div>
 
                 <h3>HOMENAJE AL SEÑOR OLIVA CERON MARTINES</h3>
-                <div class="foto-grupo-2">
+                <div class="grupo-pequeno">
                     <img src="img113.jpeg" alt="Homenaje 1">
                     <img src="img114.jpeg" alt="Homenaje 2">
                 </div>
 
                 <h3>EXEQUIAS ASOCIADO JOSE HUMBERTO ARTEAGA</h3>
-                <div class="foto-grupo-1">
+                <div class="grupo-pequeno">
                     <img src="img115.jpeg" alt="Exequias">
                 </div>
 
                 <h3>CURSO BASICO DE ECONOMIA SOLIDARIA</h3>
-                <div class="foto-grupo-3">
+                <div class="grupo-pequeno">
                     <img src="img116.jpeg" alt="Curso 1">
                     <img src="img117.jpeg" alt="Curso 2">
                     <img src="img118.jpeg" alt="Curso 3">
                 </div>
 
                 <h3>ANIVERSARIO 104</h3>
-                <div class="foto-grupo-5">
+                <div class="grupo-pequeno">
                     <img src="img119.jpeg" alt="Aniversario 1">
                     <img src="img120.jpeg" alt="Aniversario 2">
                     <img src="img121.jpeg" alt="Aniversario 3">
@@ -1247,13 +1253,13 @@
                 </div>
 
                 <h3>RECONOCIMIENTO A ASOCIADOS POR SU SENTIDO DE PERTENENCIA</h3>
-                <div class="foto-grupo-2">
+                <div class="grupo-pequeno">
                     <img src="img124.jpeg" alt="Reconocimiento 1">
                     <img src="img125.jpeg" alt="Reconocimiento 2">
                 </div>
 
                 <h3>TOMA DE JURAMENTOS A NUEVOS ASOCIADOS</h3>
-                <div class="foto-grupo-1">
+                <div class="grupo-pequeno">
                     <img src="img126.jpeg" alt="Juramentos">
                 </div>
             </div>
@@ -1498,7 +1504,18 @@
                     navbarCollapse.classList.remove('show');
                 }
                 
-                // 4. Scroll al inicio
+                // 4. Actualizar indicador de sección activa en el menú
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Activar el enlace correspondiente en el menú
+                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+                
+                // 5. Scroll al inicio
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             
