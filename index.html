@@ -2094,7 +2094,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 
  <!-- Normatividad -->
 <!-- Sección de Normatividad y Documentos -->
-<div id="normatividad" class="section active" style="padding: 40px 20px; background-color: #f9f9f9;">
+<div id="normatividad" class="section" style="padding: 40px 20px; background-color: #f9f9f9;">
     <div class="texto-inicio" style="max-width: 1200px; margin: 0 auto;">
         <h2 style="text-align: center; margin-bottom: 40px; color: #514c45; font-family: 'Georgia', serif;">
             📚 NORMATIVIDAD Y DOCUMENTOS
@@ -2235,7 +2235,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('load', animateOnScroll);
 
-
+    // === FUNCIÓN ÚNICA Y CORRECTA PARA MOSTRAR SECCIONES ===
     function showSection(id) {
         // Oculta todas las secciones
         document.querySelectorAll('.section').forEach(section => {
@@ -2246,73 +2246,64 @@ members-list li:nth-child(11) { animation-delay: 2s; }
         const targetSection = document.getElementById(id);
         if (targetSection) {
             targetSection.classList.add('active');
+            
+            // Si NO es "inicio", hacer scroll suave a la sección
+            if (id !== 'inicio') {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         }
     }
     
-    // Al cargar la página, mostrar la sección "inicio" por defecto
+    // === AL CARGAR LA PÁGINA ===
     window.addEventListener('load', function() {
-        // Si hay una sección activa en la URL (hash), mostrarla
-        const hash = window.location.hash.substring(1);
-        if (hash && document.getElementById(hash)) {
-            showSection(hash);
-        } else {
-            // Si no, mostrar "inicio" por defecto
-            showSection('inicio');
-        }
+        // Primero, mostrar la sección "inicio" por defecto
+        showSection('inicio');
         
-        // También ejecutar animaciones al cargar
+        // Luego ejecutar animaciones
         animateOnScroll();
     });
     
-    // Animaciones al hacer scroll para elementos de texto-inicio
+    // === ANIMACIONES PARA SECCIONES ESPECÍFICAS ===
     document.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('.section-container > div');
-        sections.forEach(section => {
+        // Para elementos de texto-inicio
+        const textSections = document.querySelectorAll('.section-container > div');
+        textSections.forEach(section => {
             const rect = section.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
                 section.style.opacity = '1';
                 section.style.transform = 'translateY(0)';
             }
         });
-    });
-
-    // Animaciones para junta directiva y beneficios
-    document.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('.junta-content, .beneficio');
-        sections.forEach(section => {
+        
+        // Para junta directiva y beneficios
+        const juntaSections = document.querySelectorAll('.junta-content, .beneficio');
+        juntaSections.forEach(section => {
             const rect = section.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
                 section.classList.add('active');
             }
         });
     });
-    
-    // Navegación suave y cambio de secciones
+
+    // === NAVEGACIÓN DEL MENÚ ===
     document.querySelectorAll('header ul li a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href').substring(1);
             
-            // Cambiar a la sección seleccionada
+            // Solo cambiar sección - el scroll lo hace showSection
             showSection(targetId);
             
-            // Desplazamiento suave
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                // Si es el enlace de Inicio, desplazarse a la parte superior
-                if (targetId === 'inicio') {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    // Desplazarse a las otras secciones
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+            // Para "inicio", scroll al inicio de la página
+            if (targetId === 'inicio') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             }
         });
     });
@@ -2326,6 +2317,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 
     </body>
     </html>
+
 
 
 
