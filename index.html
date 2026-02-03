@@ -1480,7 +1480,37 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 
 
 
+/* Estilos para la sección de Normatividad */
+.documento-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.documento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Estilos responsive para documentos */
+@media (max-width: 768px) {
+    .documento-card .botones {
+        flex-direction: column;
+    }
+    
+    .documento-card a {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    #normatividad iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    #normatividad iframe {
+        height: 300px;
+    }
+}
 
 
 
@@ -1506,6 +1536,7 @@ members-list li:nth-child(11) { animation-delay: 2s; }
                 <li><a href="#fotografias" onclick="showSection('fotografias')">Fotografías</a></li>
                 <li><a href="#estimulossociales" onclick="showSection('estimulosociales')">Estimulos Sociales</a></li>
                 <li><a href="#miembros" onclick="showSection('miembros')">Miembros De Asmugi</a></li>
+                <li><a href="#normatividad" onclick="showSection('normatividad')">Normatividad</a></li>
                 <li><a href="#centenario" onclick="showSection('centenario')">Centenario</a></li>
 
 
@@ -2052,43 +2083,127 @@ members-list li:nth-child(11) { animation-delay: 2s; }
 </div>
 
  <!-- Normatividad -->
-<div id="normatividad" class="section">
-
-
-
-
-<p style="color:red;">LOS LINKS DEBEN ESTAR AQUÍ ABAJO</p>
-
-
-  <ul class="documentos">
-    <li>
-      <a href="ley-2143-2021-asociaciones-mutualistas.pdf" target="_blank">
-        Ley 2143 de 2021 (Asociaciones mutualistas)
-      </a>
-    </li>
-    <li>
-      <a href="estatuto-aprobado-2024.pdf" target="_blank">
-        Estatuto aprobado 2024
-      </a>
-    </li>
-    <li>
-      <a href="acuerdo-11-auxilio-enfermedad-2025.pdf" target="_blank">
-        Acuerdo 11 – Auxilio por enfermedad (2025)
-      </a>
-    </li>
-    <li>
-      <a href="acuerdo-alquiler-salones.pdf" target="_blank">
-        Acuerdo alquiler de salones
-      </a>
-    </li>
-  </ul>
+<!-- Sección de Normatividad y Documentos -->
+<div id="normatividad" class="section" style="padding: 40px 20px; background-color: #f9f9f9;">
+    <div class="texto-inicio" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 40px; color: #514c45; font-family: 'Georgia', serif;">
+            📚 NORMATIVIDAD Y DOCUMENTOS
+        </h2>
+        
+        <div class="section-container">
+            <!-- Documento 1 -->
+            <div class="documento-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 25px;">
+                <h3 style="color: #333; margin-top: 0; border-bottom: 2px solid #827664; padding-bottom: 10px;">
+                    📄 Ley 2143 de 2021
+                </h3>
+                <p style="color: #555; margin-bottom: 20px;">
+                    Normativa sobre asociaciones mutualistas en Colombia.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="pdfs/ley-2143-2021-asociaciones-mutualistas.pdf" 
+                       download 
+                       style="background: #827664; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       ⬇️ Descargar PDF
+                    </a>
+                    <a href="pdfs/ley-2143-2021-asociaciones-mutualistas.pdf" 
+                       target="_blank"
+                       style="background: #514c45; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       👁️ Ver Online
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Documento 2 -->
+            <div class="documento-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 25px;">
+                <h3 style="color: #333; margin-top: 0; border-bottom: 2px solid #827664; padding-bottom: 10px;">
+                    📄 Estatuto Aprobado 2024
+                </h3>
+                <p style="color: #555; margin-bottom: 20px;">
+                    Estatutos actualizados de la Asociación Mutual Girardot.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="pdfs/estatuto-aprobado-2024.pdf" 
+                       download 
+                       style="background: #827664; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       ⬇️ Descargar PDF
+                    </a>
+                    <a href="pdfs/estatuto-aprobado-2024.pdf" 
+                       target="_blank"
+                       style="background: #514c45; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       👁️ Ver Online
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Documento 3 -->
+            <div class="documento-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 25px;">
+                <h3 style="color: #333; margin-top: 0; border-bottom: 2px solid #827664; padding-bottom: 10px;">
+                    📄 Acuerdo 11 – Auxilio por enfermedad (2025)
+                </h3>
+                <p style="color: #555; margin-bottom: 20px;">
+                    Acuerdo sobre auxilios por enfermedad para asociados.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="pdfs/acuerdo-11-auxilio-enfermedad-2025.pdf" 
+                       download 
+                       style="background: #827664; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       ⬇️ Descargar PDF
+                    </a>
+                    <a href="pdfs/acuerdo-11-auxilio-enfermedad-2025.pdf" 
+                       target="_blank"
+                       style="background: #514c45; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       👁️ Ver Online
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Documento 4 -->
+            <div class="documento-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 25px;">
+                <h3 style="color: #333; margin-top: 0; border-bottom: 2px solid #827664; padding-bottom: 10px;">
+                    📄 Acuerdo de Alquiler de Salones
+                </h3>
+                <p style="color: #555; margin-bottom: 20px;">
+                    Normativa para alquiler de espacios en la sede.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="pdfs/acuerdo-alquiler-salones.pdf" 
+                       download 
+                       style="background: #827664; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       ⬇️ Descargar PDF
+                    </a>
+                    <a href="pdfs/acuerdo-alquiler-salones.pdf" 
+                       target="_blank"
+                       style="background: #514c45; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                       👁️ Ver Online
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Vista previa de PDF -->
+            <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-top: 40px;">
+                <h3 style="color: #333; margin-top: 0; border-bottom: 2px solid #827664; padding-bottom: 10px; text-align: center;">
+                    🔍 Vista Previa de Documentos
+                </h3>
+                <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                    Puedes visualizar los documentos directamente aquí:
+                </p>
+                <div style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                    <iframe 
+                        src="pdfs/ley-2143-2021-asociaciones-mutualistas.pdf" 
+                        width="100%" 
+                        height="100%" 
+                        style="border: none;">
+                        Tu navegador no soporta la visualización de PDFs. 
+                        <a href="pdfs/ley-2143-2021-asociaciones-mutualistas.pdf">Descarga el PDF</a>
+                    </iframe>
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #888; font-size: 0.9em;">
+                    ⚠️ Nota: Algunos navegadores pueden requerir descargar el PDF para verlo.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
-
-
 
 
    
@@ -2174,6 +2289,7 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
 
     </body>
     </html>
+
 
 
 
